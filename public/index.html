@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏦 Banking System</h1>
+            <p class="tagline">Secure Online Banking</p>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="nav-tabs" id="navTabs">
+            <button class="nav-btn active" data-tab="login">Login</button>
+            <button class="nav-btn" data-tab="create">Create Account</button>
+            <button class="nav-btn" data-tab="accounts">View Accounts</button>
+            <button class="nav-btn" id="logoutBtn" style="display: none;">Logout</button>
+        </nav>
+
+        <!-- Login Tab -->
+        <div id="login" class="tab-content active">
+            <div class="card">
+                <h2>Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginId">Account ID:</label>
+                        <input type="number" id="loginId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div id="loginError" class="error-message"></div>
+            </div>
+        </div>
+
+        <!-- Create Account Tab -->
+        <div id="create" class="tab-content">
+            <div class="card">
+                <h2>Create New Account</h2>
+                <form id="createForm">
+                    <div class="form-group">
+                        <label for="createName">Full Name:</label>
+                        <input type="text" id="createName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="createPassword">Password:</label>
+                        <input type="password" id="createPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="createPassword2">Confirm Password:</label>
+                        <input type="password" id="createPassword2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="createDeposit">Initial Deposit ($):</label>
+                        <input type="number" id="createDeposit" min="0" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+                <div id="createError" class="error-message"></div>
+                <div id="createSuccess" class="success-message"></div>
+            </div>
+        </div>
+
+        <!-- Accounts View Tab -->
+        <div id="accounts" class="tab-content">
+            <div class="card">
+                <h2>All Accounts</h2>
+                <div id="accountsList" class="accounts-list"></div>
+            </div>
+        </div>
+
+        <!-- Dashboard (shown after login) -->
+        <div id="dashboard" style="display: none;">
+            <div class="dashboard-header">
+                <h2>Welcome, <span id="userName"></span></h2>
+                <p class="balance-display">Balance: $<span id="displayBalance">0.00</span></p>
+            </div>
+
+            <div class="dashboard-actions">
+                <div class="card action-card">
+                    <h3>Check Balance</h3>
+                    <button class="btn btn-secondary" onclick="checkBalance()">View Balance</button>
+                </div>
+
+                <div class="card action-card">
+                    <h3>Deposit Money</h3>
+                    <div class="form-group">
+                        <input type="number" id="depositAmount" placeholder="Amount" min="0.01" step="0.01">
+                    </div>
+                    <button class="btn btn-success" onclick="deposit()">Deposit</button>
+                </div>
+
+                <div class="card action-card">
+                    <h3>Withdraw Money</h3>
+                    <div class="form-group">
+                        <input type="number" id="withdrawAmount" placeholder="Amount" min="0.01" step="0.01">
+                    </div>
+                    <button class="btn btn-warning" onclick="withdraw()">Withdraw</button>
+                </div>
+            </div>
+
+            <div id="transactionMessage" class="transaction-message"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

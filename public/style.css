@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.nav-tabs {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    background: #f8f9fa;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 15px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1em;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #f0f0f0;
+    color: #667eea;
+}
+
+.nav-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+    background: white;
+}
+
+.tab-content {
+    display: none;
+    padding: 30px;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.card h3 {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #f8f9ff;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    width: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+}
+
+.btn-warning {
+    background: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+}
+
+.error-message {
+    display: none;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    border: 1px solid #f5c6cb;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message {
+    display: none;
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    border: 1px solid #c3e6cb;
+}
+
+.success-message.show {
+    display: block;
+}
+
+.transaction-message {
+    display: none;
+    background: #d1ecf1;
+    color: #0c5460;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    border: 1px solid #bee5eb;
+}
+
+.transaction-message.show {
+    display: block;
+}
+
+#dashboard {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.dashboard-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    margin: -30px -30px 30px -30px;
+    border-radius: 10px 10px 0 0;
+}
+
+.dashboard-header h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.balance-display {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.dashboard-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.action-card {
+    background: #f8f9fa;
+}
+
+.action-card h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.accounts-list {
+    display: grid;
+    gap: 15px;
+}
+
+.account-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-info h4 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.account-info p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.account-balance {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .nav-tabs {
+        flex-direction: column;
+    }
+
+    .nav-btn {
+        border-bottom: none;
+        border-right: 3px solid transparent;
+    }
+
+    .nav-btn.active {
+        border-right-color: #667eea;
+        border-bottom: none;
+    }
+
+    .dashboard-actions {
+        grid-template-columns: 1fr;
+    }
+}
